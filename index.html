@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligência Artificial do Lucas 😎</title>
+
+    <style>
+        /* Estilo para o "carregando" */
+        .carregando {
+            font-size: 18px;
+            color: #4e9f3d;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Efeito de animação de carregamento */
+        .loading-spinner {
+            border: 5px solid #f3f3f3; /* Cor de fundo */
+            border-top: 5px solid #3498db; /* Cor da parte superior do spinner */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Inteligência Artificial do Lucas😎</h1>
+    <p>Digite uma palavra para ver a resposta:</p>
+
+    <!-- Campo de entrada de texto -->
+    <input type="text" id="userInput" placeholder="Digite algo...">
+    <button onclick="verificarPalavra()">Enviar</button>
+
+    <!-- Elemento de carregamento -->
+    <div class="carregando" id="carregando">Carregando...</div>
+    <div class="loading-spinner" id="spinner" style="display:none;"></div>
+    
+    <p id="resposta"></p>
+
+    <script>
+        function verificarPalavra() {
+            // Pega o valor do campo de entrada
+            const input = document.getElementById("userInput").value.toLowerCase();
+            
+            // Exibe o carregamento
+            document.getElementById("carregando").style.display = 'block';
+            document.getElementById("spinner").style.display = 'inline-block';
+            document.getElementById("resposta").innerText = ""; // Limpa a resposta anterior
+
+            // Lista de palavras relacionadas a "gay" (você pode adicionar mais palavras se quiser)
+            const palavrasRelacionadas = ["gay", "homossexual", "viado", "bichona", "viadinho", "arco-íris"];
+            
+            // Simula um pequeno atraso de 2 segundos (como se fosse um processamento)
+            setTimeout(() => {
+                // Verifica se alguma palavra do input está na lista
+                const resposta = palavrasRelacionadas.some(palavra => input.includes(palavra));
+
+                // Se encontrar uma palavra relacionada, exibe "Calleb 😂😂😂"
+                if (resposta) {
+                    document.getElementById("resposta").innerText = "Calleb 😂😂😂";
+                } else {
+                    document.getElementById("resposta").innerText = "Não detectei palavras relacionadas.";
+                }
+
+                // Esconde o carregamento após a resposta
+                document.getElementById("carregando").style.display = 'none';
+                document.getElementById("spinner").style.display = 'none';
+            }, 2000); // 2 segundos de "carregamento"
+        }
+    </script>
+
+
+</body></html>
